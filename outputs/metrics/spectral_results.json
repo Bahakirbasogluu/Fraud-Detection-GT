@@ -1,0 +1,66 @@
+[
+  {
+    "dataset": "Credit Card",
+    "category": "Graph-Spectral",
+    "method": "Fiedler_Anomaly",
+    "auc_roc": 0.8861416665188708,
+    "auc_prc": 0.7880342845757696,
+    "f1": null
+  },
+  {
+    "dataset": "Medicare",
+    "category": "Graph-Spectral",
+    "method": "Fiedler_Anomaly",
+    "auc_roc": 0.6095807262214021,
+    "auc_prc": 0.024472991213202257,
+    "f1": null
+  },
+  {
+    "dataset": "Credit Card",
+    "category": "Graph-Spectral",
+    "method": "SpectralClustering_k10",
+    "auc_roc": 0.9220570659188856,
+    "auc_prc": 0.7489363249707516,
+    "f1": null
+  },
+  {
+    "dataset": "Medicare",
+    "category": "Graph-Spectral",
+    "method": "SpectralClustering_k10",
+    "auc_roc": 0.5779291650422477,
+    "auc_prc": 0.02510883735923347,
+    "f1": null
+  },
+  {
+    "dataset": "Credit Card",
+    "category": "Graph-Spectral",
+    "method": "SpectralClustering_k10",
+    "auc_roc": 0.9220570659188857,
+    "auc_prc": 0.7489363249707515,
+    "f1": null
+  },
+  {
+    "dataset": "Medicare",
+    "category": "Graph-Spectral",
+    "method": "SpectralClustering_k10",
+    "auc_roc": 0.5779291650422477,
+    "auc_prc": 0.02510883735923347,
+    "f1": null
+  },
+  {
+    "dataset": "Credit Card",
+    "category": "Graph-Spectral",
+    "method": "SpectralClustering_k10",
+    "auc_roc": 0.9220570659188857,
+    "auc_prc": 0.7489363249707515,
+    "f1": null
+  },
+  {
+    "dataset": "Medicare",
+    "category": "Graph-Spectral",
+    "method": "SpectralClustering_k10",
+    "auc_roc": 0.5779291650422477,
+    "auc_prc": 0.02510883735923347,
+    "f1": null
+  }
+]

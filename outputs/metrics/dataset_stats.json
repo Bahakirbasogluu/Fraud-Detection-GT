@@ -1,0 +1,7 @@
+{
+  "cc_n_rows": 284807,
+  "cc_fraud": 492,
+  "cc_fraud_rate": 0.001727485630620034,
+  "ml_best_cc_auc": 0.9588,
+  "ml_best_med_auc": 0.6081
+}

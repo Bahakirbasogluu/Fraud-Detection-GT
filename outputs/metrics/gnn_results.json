@@ -1,0 +1,74 @@
+[
+  {
+    "dataset": "Credit Card",
+    "category": "Graph-GNN",
+    "method": "GCN",
+    "auc_roc": 0.61438274494924,
+    "auc_prc": 0.0693031654075664,
+    "f1": 0.12037037037037036,
+    "train_time": 35.22802662849426
+  },
+  {
+    "dataset": "Medicare",
+    "category": "Graph-GNN",
+    "method": "GCN",
+    "auc_roc": 0.6139024279141803,
+    "auc_prc": 0.027318647881545727,
+    "f1": 0.057057057057057055,
+    "train_time": 9.67455244064331
+  },
+  {
+    "dataset": "Credit Card",
+    "category": "Graph-GNN",
+    "method": "GraphSAGE",
+    "auc_roc": 0.5171405053259037,
+    "auc_prc": 0.06429010038583051,
+    "f1": 0.096,
+    "train_time": 28.363467693328857
+  },
+  {
+    "dataset": "Medicare",
+    "category": "Graph-GNN",
+    "method": "GraphSAGE",
+    "auc_roc": 0.43086366328064507,
+    "auc_prc": 0.017085278580238256,
+    "f1": 0.03689567430025445,
+    "train_time": 7.677090644836426
+  },
+  {
+    "dataset": "Credit Card",
+    "category": "Graph-GNN",
+    "method": "GAT",
+    "auc_roc": 0.3585873885783004,
+    "auc_prc": 0.013607232246227072,
+    "f1": 0.019602019602019603,
+    "train_time": 51.83856010437012
+  },
+  {
+    "dataset": "Medicare",
+    "category": "Graph-GNN",
+    "method": "GAT",
+    "auc_roc": 0.4360679633763039,
+    "auc_prc": 0.01590173113984053,
+    "f1": 0.03689567430025445,
+    "train_time": 16.530097007751465
+  },
+  {
+    "dataset": "Credit Card",
+    "category": "Graph-GNN-Unsup",
+    "method": "DOMINANT",
+    "auc_roc": 0.5708243701276116,
+    "auc_prc": 0.019712789911184185,
+    "f1": null,
+    "train_time": 1263.676852464676
+  },
+  {
+    "dataset": "Medicare",
+    "category": "Graph-GNN-Unsup",
+    "method": "DOMINANT",
+    "auc_roc": 0.5509269803671479,
+    "auc_prc": 0.020012632015841497,
+    "f1": null,
+    "train_time": 37.43212580680847
+  }
+]

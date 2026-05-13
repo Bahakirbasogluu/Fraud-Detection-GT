@@ -1,0 +1,18 @@
+[
+  {
+    "dataset": "Credit Card",
+    "category": "Graph-Classical",
+    "method": "RF_Centrality_Features",
+    "auc_roc": 0.8839329407877581,
+    "auc_prc": 0.4431005695862765,
+    "f1": null
+  },
+  {
+    "dataset": "Medicare",
+    "category": "Graph-Classical",
+    "method": "RF_Centrality_Features",
+    "auc_roc": 0.4332204603442353,
+    "auc_prc": 0.014433227091959006,
+    "f1": null
+  }
+]

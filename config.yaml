@@ -1,0 +1,165 @@
+# ============================================================
+# Fraud Detection GT - Centralized Configuration
+# ============================================================
+
+project:
+  name: "Fraud Detection via Graph Theory"
+  course: "Graduate Graph Theory"
+  author: "Baha Kirbasoglu"
+  version: "1.0.0"
+
+# ============================================================
+# Environment: "colab" or "local"
+# ============================================================
+environment: "colab"
+
+# ============================================================
+# Google Colab + Drive Paths
+# ============================================================
+# Drive structure expected:
+#   MyDrive/fraudDataset/
+#     ├── creditcard/creditcard.csv
+#     ├── leie/                         ← LEIE raw files
+#     ├── medicare/Combined_LEIE_Medicare_2017_2019_DOWNSIZED_1mil.csv
+#     └── Fraud-Detection-GT/           ← this project folder
+#
+colab:
+  drive_root: "/content/drive/MyDrive/fraudDataset"
+  project_root: "/content/drive/MyDrive/fraudDataset/Fraud-Detection-GT"
+
+  # Dataset paths on Drive
+  creditcard_csv: "/content/drive/MyDrive/fraudDataset/creditcard/creditcard.csv"
+  medicare_csv:   "/content/drive/MyDrive/fraudDataset/medicare/Combined_LEIE_Medicare_2017_2019_DOWNSIZED_1mil.csv"
+  leie_dir:       "/content/drive/MyDrive/fraudDataset/leie"
+
+  # Output paths (saved to Drive so they persist across sessions)
+  outputs:        "/content/drive/MyDrive/fraudDataset/Fraud-Detection-GT/outputs"
+  figures:        "/content/drive/MyDrive/fraudDataset/Fraud-Detection-GT/outputs/figures"
+  metrics:        "/content/drive/MyDrive/fraudDataset/Fraud-Detection-GT/outputs/metrics"
+  models:         "/content/drive/MyDrive/fraudDataset/Fraud-Detection-GT/outputs/models"
+  graphs:         "/content/drive/MyDrive/fraudDataset/Fraud-Detection-GT/data/graphs"
+
+  # ML baseline (if also uploaded to Drive)
+  ml_project_pickles: "/content/drive/MyDrive/fraudDataset/Fraud-Detection/pickled_storage"
+
+# ============================================================
+# Local Paths (fallback when running locally)
+# ============================================================
+paths:
+  raw_data: "data/raw"
+  processed_data: "data/processed"
+  graphs: "data/graphs"
+  notebooks: "notebooks"
+  outputs: "outputs"
+  models: "outputs/models"
+  figures: "outputs/figures"
+  metrics: "outputs/metrics"
+  reports: "reports"
+  ml_project_pickles: "../Fraud-Detection/pickled_storage"
+  creditcard_csv: "data/raw/creditcard.csv"
+  medicare_csv: "data/raw/medicare/Combined_LEIE_Medicare_2017_2019_DOWNSIZED_1mil.csv"
+
+# ============================================================
+# Graph Construction Parameters
+# ============================================================
+graph_construction:
+  credit_card:
+    method: "knn"           # 'knn' or 'threshold'
+    knn_k: 10               # neighbors for KNN graph
+    similarity: "cosine"    # 'cosine' or 'euclidean'
+    threshold: 0.95         # for threshold-based graph
+    use_pca: true
+    pca_components: 10
+    max_nodes: 50000        # subsample for memory
+
+  medicare:
+    # Bipartite projection: Provider-Drug
+    min_drug_count: 5       # minimum drug claims to include provider
+    min_provider_count: 10  # minimum providers per drug to keep edge
+    geographic_edges: true  # add edges for same-state providers
+    shared_patient_edges: false  # requires patient-level data
+    max_providers: 30000    # subsample if needed
+
+# ============================================================
+# Graph Analysis Parameters
+# ============================================================
+graph_analysis:
+  pagerank_alpha: 0.85
+  community_detection:
+    algorithm: "louvain"    # 'louvain', 'girvan_newman', 'label_propagation'
+    resolution: 1.0
+  spectral:
+    n_clusters: 10          # for spectral clustering
+    n_eigenvectors: 20      # eigenvectors to compute
+
+# ============================================================
+# GNN Training Parameters
+# ============================================================
+gnn:
+  seed: 42
+  train_ratio: 0.70
+  val_ratio: 0.10
+  test_ratio: 0.20
+  stratified: true
+
+  gcn:
+    hidden_channels: 64
+    num_layers: 2
+    dropout: 0.5
+    lr: 0.01
+    epochs: 200
+    weight_decay: 5e-4
+
+  graphsage:
+    hidden_channels: 64
+    num_layers: 2
+    aggr: "mean"            # 'mean', 'max', 'lstm'
+    dropout: 0.5
+    lr: 0.01
+    epochs: 200
+
+  gat:
+    hidden_channels: 8
+    heads: 4
+    num_layers: 2
+    dropout: 0.6
+    lr: 0.005
+    epochs: 200
+
+  dominant:
+    hidden_channels: 64
+    num_layers: 4
+    dropout: 0.3
+    lr: 0.001
+    epochs: 100
+    alpha: 0.5              # balance between structure and attribute reconstruction
+
+# ============================================================
+# Evaluation
+# ============================================================
+evaluation:
+  metrics:
+    - "auc_roc"
+    - "auc_prc"
+    - "f1"
+    - "precision"
+    - "recall"
+    - "average_precision"
+  threshold_strategy: "optimal_f1"   # find threshold maximizing F1
+  cross_val_folds: 5
+
+# ============================================================
+# Visualization
+# ============================================================
+visualization:
+  max_nodes_display: 5000   # subgraph for visualization
+  node_size_metric: "pagerank"
+  edge_weight_threshold: 0.5
+  fraud_color: "#FF4444"
+  normal_color: "#4444FF"
+  community_palette: "tab20"
+
+# ============================================================
+# Reproducibility
+# ============================================================
+random_seed: 42

@@ -1,0 +1,28 @@
+# Data files (large)
+data/raw/
+data/graphs/
+*.csv
+*.pkl
+
+# Model outputs
+outputs/models/*.pt
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+__pycache__/
+*.pyc
+*.pyo
+
+# Processed data
+data/processed/
+
+# Large logs
+*.log
+
+# But keep:
+!requirements.txt
+!config.yaml
+!README.md
+!outputs/figures/
+!outputs/metrics/
+!reports/
