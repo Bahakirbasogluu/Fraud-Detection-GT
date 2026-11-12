@@ -102,6 +102,7 @@ Fraud-Detection-GT/
 │   └── comparison_ml_vs_graph.md
 ├── final.md              # full written report (Markdown)
 ├── report.pdf            # full written report (PDF)
+├── presentation.pptx     # final presentation
 ├── colab_setup.md        # Google Drive / Colab setup notes (in Turkish)
 ├── config.yaml
 └── requirements.txt
